@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-8">
+        <h3 class="mb-0">Centros</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+        <a (click)="modal.open()" class="btn btn-primary">
+            Nuevo
+        </a>
+    </div>
+</div>
+<div class="row pt-2">
+    <div class="col-md-12">
+        <nf-table [header]="tableHeader" [controls]="tableControls" [data]="tableData"></nf-table>
+    </div>
+</div>
+
+<nf-modal [modalConfig]="modalConfig" #modal>
+    <form action="" [formGroup]="form">
+        <div class="row">
+            <div class="col-md-12">
+                <nf-group>
+                    <nf-label>Centro</nf-label>
+                    <nf-select formControlName="centro" [options]="centros">
+                    </nf-select>
+                </nf-group>
+            </div>
+        </div>
+    </form>
+</nf-modal>

@@ -1,0 +1,109 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-8 d-flex align-items-center">
+      <a routerLink="/admin/usuarios">
+        Regresar
+      </a>
+      <h3 class="mb-0 ml-3">{{onEdit ? 'Editar' : 'Nuevo'}} usuario</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+      <button *ngIf="!onEdit" (click)="save()" class="btn btn-primary">
+        Guardar
+      </button>
+      <button *ngIf="onEdit" (click)="update()" class="btn btn-warning">
+        Actualizar
+      </button>
+    </div>
+  </div>
+
+  <hr class="mt-2">
+
+  <form action="" [formGroup]="form">
+    <div class="row">
+      <div class="col-md-2">
+        <nf-group>
+          <nf-label>Rol</nf-label>
+          <nf-select (valueChange)="onRolChange()" formControlName="rol" [options]="rolesSelect">
+          </nf-select>
+        </nf-group>
+      </div>
+      <div class="col-md-2" *ngIf="this.form.value.rol == 2">
+        <nf-group>
+          <nf-label>Especialidad</nf-label>
+          <nf-select formControlName="especialidad" [options]="especialidadSelect"></nf-select>
+        </nf-group>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-2">
+        <nf-group>
+          <nf-label>DNI</nf-label>
+          <nf-input formControlName="dni"></nf-input>
+        </nf-group>
+      </div>
+      <div class="col-md-2">
+        <nf-group>
+          <nf-label>Fecha de nacimiento</nf-label>
+          <nf-date format="YYYY-MM-DD" formControlName="fecha_nac"></nf-date>
+        </nf-group>
+      </div>
+      <div class="col-md-2">
+        <nf-group>
+          <nf-label>Genero</nf-label>
+          <nf-select formControlName="genero" [options]="generoSelect"></nf-select>
+        </nf-group>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-3">
+        <nf-group>
+          <nf-label>Nombres</nf-label>
+          <nf-input formControlName="nombres"></nf-input>
+        </nf-group>
+      </div>
+
+      <div class="col-md-3">
+        <nf-group>
+          <nf-label>Apellidos</nf-label>
+          <nf-input formControlName="apellidos"></nf-input>
+        </nf-group>
+      </div>
+
+
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-3">
+        <nf-group>
+          <nf-label>Correo</nf-label>
+          <nf-input formControlName="correo"></nf-input>
+        </nf-group>
+      </div>
+      <div class="col-md-3">
+        <nf-group>
+          <nf-label>Teléfono</nf-label>
+          <nf-input formControlName="num_telefonico"></nf-input>
+        </nf-group>
+      </div>
+    </div>
+    <div class="row mt-3 mb-3">
+      <div class="col-md-6">
+        <nf-group>
+          <nf-label>Dirección</nf-label>
+          <nf-input formControlName="direccion"></nf-input>
+        </nf-group>
+      </div>
+    </div>
+  </form>
+
+  <hr class="mt-2">
+
+  <ng-container *ngIf="onEdit && this.form.value.rol == 2">
+    <nf-usuario-centro [centros]="centrosSelect" [userId]="currentId"></nf-usuario-centro>
+  </ng-container>
+
+  <ng-container *ngIf="onEdit && this.form.value.rol == 3">
+    <nf-apoderado [apoderados]="users" [userId]="currentId"></nf-apoderado>
+  </ng-container>
+</div>

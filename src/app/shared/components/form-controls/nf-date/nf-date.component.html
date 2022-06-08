@@ -1,0 +1,13 @@
+<dp-date-picker
+  [config]="config"
+  theme="dp-material"
+  class="nf-control-wrapper"
+  [disabled]="disabled"
+  placeholder="Selecciona una fecha"
+  [mode]="mode"
+  [displayDate]="value"
+  [config]="{format: format}"
+  (blur)="onChangeValue(null)"
+  (onChange)="onChangeValue($event)"
+  #datepicker>
+</dp-date-picker>

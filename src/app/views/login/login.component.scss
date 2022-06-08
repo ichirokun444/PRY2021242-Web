@@ -1,0 +1,24 @@
+.form-control,
+button {
+  height: 50px;
+}
+
+.form-control {
+  border-radius: 4px;
+  border: 1px solid #dddddd10;
+  box-shadow: 0px 0px 6px #00000010;
+}
+
+.brand-name {
+  display: flex;
+  align-items: center;
+  font-size: 1.45rem;
+  font-weight: 600;
+
+  span {
+
+    strong {
+      color: #3f99ff !important;
+    }
+  }
+}

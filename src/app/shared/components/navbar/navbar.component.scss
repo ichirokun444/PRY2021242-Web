@@ -1,0 +1,18 @@
+.navbar {
+  background: white !important;
+  height: 5rem;
+
+  .brand-name {
+    display: flex;
+    align-items: center;
+    font-size: 1.45rem;
+    font-weight: 600;
+
+    span {
+
+      strong {
+        color: #3f99ff !important;
+      }
+    }
+  }
+}

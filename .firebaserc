@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "medical"
+  },
+  "targets": {
+    "medical": {
+      "hosting": {
+        "staging": [
+          "medical-dev"
+        ],
+        "prod": [
+          "medical-poll"
+        ]
+      }
+    }
+  }
+}

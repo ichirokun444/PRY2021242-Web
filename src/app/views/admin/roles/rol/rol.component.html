@@ -1,0 +1,39 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-8 d-flex align-items-center">
+      <a routerLink="/admin/roles">
+        Regresar
+      </a>
+      <h3 class="mb-0 ml-3">{{onEdit ? 'Editar' : 'Nuevo'}} rol</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+      <button *ngIf="!onEdit" (click)="save()" class="btn btn-primary">
+        Guardar
+      </button>
+      <button *ngIf="onEdit" (click)="update()" class="btn btn-warning">
+        Actualizar
+      </button>
+    </div>
+  </div>
+
+  <hr class="mt-2">
+
+  <form action="" [formGroup]="form">
+    <div class="row">
+      <div class="col-md-2">
+        <nf-group>
+          <nf-label>Código</nf-label>
+          <nf-input formControlName="code"></nf-input>
+        </nf-group>
+      </div>
+
+      <div class="col-md-3">
+        <nf-group>
+          <nf-label>Nombre</nf-label>
+          <nf-input formControlName="name"></nf-input>
+        </nf-group>
+      </div>
+    </div>
+
+  </form>
+</div>

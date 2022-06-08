@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+// @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600&display=swap');
+@import '@pnotify/core/dist/PNotify.css';
+@import '@pnotify/mobile/dist/PNotifyMobile.css';
+@import '@pnotify/bootstrap4/dist/PNotifyBootstrap4.css';
+
+body,
+html {
+  font-family: 'Poppins', sans-serif;
+  // font-family: 'Roboto';
+}
+
+/* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap';

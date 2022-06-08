@@ -1,0 +1,25 @@
+.wrapper {
+  background: #FAFAFA;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  max-width: 100%;
+
+  .left {
+    background: white;
+    border-right: 1px solid #dddddd50;
+    border-top: 1px solid #dddddd50;
+    width: 65px;
+  }
+
+  .right {
+    width: calc(100vw - 65px);
+  }
+}

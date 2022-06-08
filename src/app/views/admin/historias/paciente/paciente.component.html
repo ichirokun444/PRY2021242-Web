@@ -1,0 +1,73 @@
+<div class="container-fluid pt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Bienvenido paciente, {{userData.name}}</h3>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h5 data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+        aria-controls="collapseExample">Anteriores</h5>
+      <div class="collapse" id="collapseExample">
+        <div *ngIf="citasAnteriores.length; else elseBlock">
+          <div (click)="navigateTo(item)" class="card mt-3" *ngFor="let item of citasAnteriores">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{item.code}} - {{item.doctor_f}} <small>{{item.doctor_e }}</small>
+                <br>
+                <span>{{formatDate(item.fecha)}}</span>
+              </h5>
+              <!-- <p class="card-text">Diagnóstico: {{item.diagnostico || '-'}}</p>
+              <p class="card-text">Exámenes: {{item.examenes || '-'}}</p>
+              <p class="card-text">Tratamiento: {{item.tratamiento || '-'}}</p>
+              <p class="card-text">Antecedentes: {{item.antecedentes || '-'}}</p> -->
+            </div>
+          </div>
+        </div>
+        <ng-template #elseBlock>No tienes historias clinicas para mostrar</ng-template>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h5>Hoy</h5>
+      <div *ngIf="citasHoy.length; else elseBlock">
+        <div (click)="navigateTo(item)" class="card mt-3" *ngFor="let item of citasHoy">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{item.code}} - {{item.doctor_f}} <small>{{item.doctor_e }}</small>
+              <br>
+              <span>{{formatDate(item.fecha)}}</span>
+            </h5>
+            <!-- <p class="card-text">Diagnóstico: {{item.diagnostico || '-'}}</p>
+            <p class="card-text">Exámenes: {{item.examenes || '-'}}</p>
+            <p class="card-text">Tratamiento: {{item.tratamiento || '-'}}</p>
+            <p class="card-text">Antecedentes: {{item.antecedentes || '-'}}</p> -->
+          </div>
+        </div>
+      </div>
+      <ng-template #elseBlock>No tienes historias clínicas para mostrar</ng-template>
+    </div>
+  </div>
+  <hr>
+  <!-- <div class="row">
+    <div class="col-md-12">
+      <h5>Próximas</h5>
+      <div *ngIf="citasProximas.length; else elseBlock">
+        <div (click)="navigateTo(item)" class="card mt-3" *ngFor="let item of citasProximas">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{item.code}} - {{item.doctor_f}} <small>{{item.doctor_e }}</small>
+              <br>
+              <span>{{formatDate(item.fecha)}}</span>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <ng-template #elseBlock>No tienes citas para mostrar</ng-template>
+    </div>
+  </div> -->
+</div>

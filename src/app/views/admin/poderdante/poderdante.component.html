@@ -1,0 +1,33 @@
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="mb-0">Tienes {{poderdantes.length}} poderdantes</h3>
+        </div>
+    </div>
+
+    <hr class="mt-2">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-3" *ngFor="let poderdante of poderdantes">
+                <div class="card-body">
+                    <h5 class="card-title mb-0">
+                        {{poderdante.apoderado_d.nombres}} {{poderdante.apoderado_d.apellidos}}
+                    </h5>
+                </div>
+                <div class="card-footer">
+                    <span style="cursor: pointer;">Registros realizados:</span>
+                    <ul class="mt-3">
+                        <li *ngFor="let his of poderdante.historias">
+                            <a [routerLink]="'/admin/paciente/'+his.id">
+                                {{his.code}} - {{parseDate(his.fecha)}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- {{poderdantes | json}} -->

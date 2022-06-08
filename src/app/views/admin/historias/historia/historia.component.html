@@ -1,0 +1,103 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-8 d-flex align-items-center">
+      <a class="mr-3" routerLink="/admin/historias" *ngIf="!this.doctor && !readonly">
+        Regresar
+      </a>
+      <a class="mr-3" routerLink="/admin/paciente" *ngIf="readonly">
+        Regresar
+      </a>
+      <h3 class="mb-0" *ngIf="!readonly">{{onEdit ? 'Editar' : 'Nueva'}} historia clínica</h3>
+      <h3 class="mb-0" *ngIf="readonly">Ver historia</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+      <button *ngIf="!onEdit" (click)="save()" class="btn btn-primary">
+        Guardar
+      </button>
+      <button *ngIf="onEdit && !readonly" (click)="update()" class="btn btn-warning">
+        Actualizar
+      </button>
+    </div>
+  </div>
+
+  <hr class="mt-2">
+
+  <form action="" class="mb-5" [formGroup]="form">
+    <fieldset [disabled]="readonly">
+      <div class="row">
+        <div class="col-md-2">
+          <nf-group>
+            <nf-label>Código</nf-label>
+            <nf-input formControlName="code"></nf-input>
+          </nf-group>
+        </div>
+
+        <div class="col-md-2">
+          <nf-group>
+            <nf-label>Doctor</nf-label>
+            <nf-autocomplete #selectedDoctor [disabled]="this.doctor" [data]="medicosSelect" formControlName="medico">
+            </nf-autocomplete>
+          </nf-group>
+        </div>
+
+        <div class="col-md-2">
+          <nf-group>
+            <nf-label>Especialidad</nf-label>
+            <nf-input [value]="getEspecialidad(selectedDoctor?.model?.especialidad)" [disabled]="true"></nf-input>
+          </nf-group>
+        </div>
+
+        <div class="col-md-2">
+          <nf-group>
+            <nf-label>Pacientes</nf-label>
+            <nf-autocomplete [data]="pacientesSelect" formControlName="paciente">
+            </nf-autocomplete>
+          </nf-group>
+        </div>
+
+        <div class="col-md-2">
+          <nf-group>
+            <nf-label>Fecha</nf-label>
+            <nf-date format="YYYY-MM-DD HH:mm:ss" formControlName="fecha"></nf-date>
+          </nf-group>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-md-6">
+          <nf-group>
+            <nf-label>Diagnostico</nf-label>
+            <nf-textarea formControlName="diagnostico"></nf-textarea>
+          </nf-group>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-md-6">
+          <nf-group>
+            <nf-label>Antecedentes</nf-label>
+            <nf-textarea formControlName="antecedentes"></nf-textarea>
+          </nf-group>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-md-6">
+          <nf-group>
+            <nf-label>Tratamiento</nf-label>
+            <nf-textarea formControlName="tratamiento"></nf-textarea>
+          </nf-group>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-md-6">
+          <nf-group>
+            <nf-label>Examenes</nf-label>
+            <nf-textarea formControlName="examenes"></nf-textarea>
+          </nf-group>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

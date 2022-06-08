@@ -1,0 +1,83 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.breadcrumb {
+  border-radius: 0;
+}
+
+
+.content {
+  background: #fafafa;
+  flex: 1;
+}
+
+::ng-deep {
+  .loading {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+  }
+
+
+  .loading:after,
+  .loading:before {
+    position: absolute;
+    display: block;
+    content: ''
+  }
+
+  .loading:before {
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .8)
+  }
+
+  .loading:after {
+    z-index: 1001;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    margin: -16px 0 0 -16px;
+    -webkit-animation: form-spin .6s linear;
+    animation: form-spin .6s linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #767676 rgba(0, 0, 0, .1) rgba(0, 0, 0, .1);
+    border-radius: 999px
+  }
+
+  @-webkit-keyframes form-spin {
+    from {
+      -webkit-transform: rotate(0);
+      transform: rotate(0)
+    }
+
+    to {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg)
+    }
+  }
+
+  @keyframes form-spin {
+    from {
+      -webkit-transform: rotate(0);
+      transform: rotate(0)
+    }
+
+    to {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg)
+    }
+  }
+
+}

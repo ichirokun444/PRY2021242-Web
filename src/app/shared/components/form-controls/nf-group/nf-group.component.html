@@ -1,0 +1,17 @@
+ <ng-template #labelControl>
+   <ng-content select="nf-label"></ng-content>
+ </ng-template>
+
+ <ng-template #inputControl>
+   <ng-content select="nf-input"></ng-content>
+ </ng-template>
+
+ <ng-template #selectControl>
+   <ng-content select="nf-select"></ng-content>
+ </ng-template>
+
+
+ <ng-container *ngTemplateOutlet="labelControl"></ng-container>
+ <ng-container *ngTemplateOutlet="inputControl"></ng-container>
+ <ng-container *ngTemplateOutlet="selectControl"></ng-container>
+ <ng-content></ng-content>

@@ -1,0 +1,26 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="mb-0">Usuarios</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+      <a routerLink="nuevo" class="btn btn-primary">
+        Nuevo
+      </a>
+    </div>
+  </div>
+
+  <hr class="mt-2">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <nf-table #table
+          [controls]="tableControls"
+          [header]="tableHeader"
+          [data]="tableData">
+        </nf-table>
+      </div>
+    </div>
+  </div>
+</div>

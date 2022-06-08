@@ -1,0 +1,83 @@
+$button-size: 4rem;
+
+.sidebar {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  min-width: $button-size;
+  position: relative;
+
+  ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    li {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 100%;
+      flex-grow: 1;
+      max-height: $button-size;
+      margin: 0;
+
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+
+      position: relative;
+
+      small {
+        position: absolute;
+        top: 25%;
+        text-align: center;
+        font-size: 1rem;
+        background: #333;
+        left: 120%;
+        z-index: 9999;
+        max-height: fit-content;
+        color: white;
+        display: inline-block;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-radius: 5px;
+        width: max-content;
+      }
+
+      &.active {
+        ::ng-deep {
+          .icon {
+            svg {
+              stroke: #3f99ff;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.sidebar-container {
+  &.hover {
+    &::after {
+      position: absolute;
+      content: "";
+      background: white;
+      opacity: 0.5;
+      top: 0;
+      left: 100%;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      bottom: 0;
+    }
+  }
+}

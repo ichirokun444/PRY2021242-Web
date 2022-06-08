@@ -1,0 +1,13 @@
+<select
+  (change)="selectedValue($event.target.value)"
+  name=""
+  id=""
+  class="form-control"
+  [value]="value"
+  [disabled]="disabled">
+  <option *ngIf="!noText" value="" selected>{{defaultText}}</option>
+  <option *ngIf="noText && !value" value="" selected disabled>-</option>
+  <option [value]="item.value" *ngFor="let item of options" [disabled]="item.disabled" [selected]="item.value === value">
+    {{item.label}}
+  </option>
+</select>

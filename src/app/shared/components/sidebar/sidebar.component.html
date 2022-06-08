@@ -1,0 +1,15 @@
+<div class="sidebar">
+  <ul class="sidebar-container" #container>
+    <li
+      *ngFor="let item of menu"
+      [routerLinkActive]="'active'"
+      [routerLink]="item.path"
+      (mouseenter)="container.classList.add('hover'); item.hover = true;"
+      (mouseleave)="container.classList.remove('hover'); item.hover = false">
+
+      <div class="icon" [innerHTML]="item.icon | keepHtml"></div>
+
+      <small *ngIf="item.hover">{{item.label}}</small>
+    </li>
+  </ul>
+</div>

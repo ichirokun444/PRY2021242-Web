@@ -1,0 +1,43 @@
+<div class="table-wrapper" [ngClass]="{loading: loading}">
+  <table class="table table-hover table-sm m-0" id="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col" *ngFor="let item of header">{{item.label}}</th>
+        <th scope="col" *ngIf="controls.length" class="text-center">
+          <img src="/assets/settings.svg" />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="!data.length">
+        <td class="text-center" [attr.colspan]="header.length + 1">{{emptyMessage}}</td>
+      </tr>
+      <tr (click)="onSelectedRow(col, index)" *ngFor="let col of data; trackBy: trackByFn; let index = index"
+        [ngClass]="{ selected: isSelected(col, index) }" [class]="col.style">
+        <td *ngFor="let value of header">
+          <ng-container *ngIf="value.type === 'url'">
+            <a [href]="'//'+col[value.field]"
+              rel="noopener noreferrer"
+              target="_blank">{{col[value.field]}}</a>
+          </ng-container>
+          <ng-container *ngIf="!value.type">
+            {{col[value.field]}}
+          </ng-container>
+        </td>
+
+        <td *ngIf="controls.length">
+          <div class="d-flex">
+            <button *ngFor="let control of controls"
+              [disabled]="control.disabled"
+              (click)="$event.stopPropagation(); $event.preventDefault(); control.function(col)"
+              class="btn btn-sm btn-default px-2 ml-1 py-0" [ngClass]="control.style || ''">
+              <!-- <i [class]="control.icon"></i> -->
+              <i class="icon" [innerHTML]="'' + control.icon | keepHtml"></i>
+              {{control.label}}
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

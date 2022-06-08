@@ -1,0 +1,43 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="mb-0">Historias</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+      <a routerLink="nuevo" class="btn btn-primary">
+        Nueva
+      </a>
+    </div>
+  </div>
+
+  <hr class="mt-2">
+
+  <div class="row">
+    <div class="ml-auto col-md-6 justify-content-end align-items-end d-flex mb-2">
+      <div class="row no-gutters">
+        <div class="col pr-md-1">
+          <nf-select (valueChange)="selectedPaciente = null" [disabled]="this.doctor" [options]="doctoresF"
+            [(value)]="selectedDoctor" defaultText="Seleccionar Doctor"></nf-select>
+        </div>
+        <div class="col pr-md-1">
+          <nf-select [disabled]="!selectedDoctor" [options]="pacientesF" [(value)]="selectedPaciente"
+            defaultText="Seleccionar Paciente">
+          </nf-select>
+        </div>
+        <div class="col">
+          <nf-date format="YYYY-MM-DD" [(value)]="selectedDate"></nf-date>
+        </div>
+      </div>
+      <!-- <nf-select class="mr-4" [options]="centrosSelect" [(value)]="selectedCentro" defaultText="Seleccionar Centro" *ngIf="!this.doctor"></nf-select> -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <nf-table #table [controls]="this.doctor ? tableControlsDoctor : tableControls" [header]="tableHeader"
+          [data]="tableDataFDate">
+        </nf-table>
+      </div>
+    </div>
+  </div>
+</div>

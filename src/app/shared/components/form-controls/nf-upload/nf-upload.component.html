@@ -1,0 +1,13 @@
+<div class="input-group">
+  <input
+    type="text"
+    class="form-control"
+    [value]="lastUpload?.name"
+    disabled placeholder="Cargar un archivo">
+
+  <input type="file" class="d-none"
+    (change)="onUpdatedElement($event.target.files)"
+    [accept]="accept" #fileInput>
+
+  <button class="btn btn-primary" type="button" (click)="fileInput.click()">Buscar</button>
+</div>
